@@ -5,3 +5,32 @@ body{
     justify-content: center;
     flex-direction: column;
 }
+
+.calcholder{
+    background-color: gray;
+    width:400px;
+    height:auto;
+}
+
+.display{
+    height: 20%;
+    background-color: beige;
+    align-items: center;
+    display: flex;
+    justify-content: end;
+}
+button{
+    padding:35px;
+}
+.calculatorbody{
+    padding: 20px;
+    gap: 10px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+.topbutton{
+    flex:1 1 130px;
+}
