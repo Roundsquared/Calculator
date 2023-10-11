@@ -10,9 +10,11 @@ body{
     background-color: gray;
     width:400px;
     height:auto;
+    padding:20px;
+
 }
 
-.display{
+.screen{
     height: 20%;
     background-color: beige;
     align-items: center;

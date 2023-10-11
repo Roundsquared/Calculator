@@ -5,6 +5,7 @@ let num2;
 
 
 
+
 let add = ()=>{
     let result = num1+num2
     console.log(result)
@@ -55,3 +56,14 @@ let operate = ()=>{
 
 
 }
+
+let button = document.querySelectorAll('button')
+button.forEach((element) => {
+    
+    let test= function(){
+        let text=element.innerHTML
+        console.log(text)
+    }
+    element.addEventListener('click',test)
+    
+});
