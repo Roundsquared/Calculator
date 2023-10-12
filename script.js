@@ -3,17 +3,18 @@ let num1;
 let operator;
 let num2;
 let dispVar='';
-
+let ans;
+let result;
 
 
 
 let add = ()=>{
-    let result = num1+num2
+    result = num1+num2
     console.log(result)
 }
 let sub = ()=>{
     
-    let result = num1-num2
+    result = num1-num2
     console.log(result)
 }
 let div = ()=>{
@@ -23,28 +24,23 @@ let div = ()=>{
         num2=prompt('Pick another number')
     }
 
-    let result = num1/num2
+    result = num1/num2
     console.log(result)
 }
 let mult = ()=>{
 
-    let result = num1*num2
+    result = num1*num2
     console.log(result)
 }
 let operate = ()=>{
-    num1=prompt('first number')
-    operator=prompt('operator')
-    num2=prompt('second number')
-    num1 = +num1
-    num2 = +num2
-
+    console.log(operator)
    if(operator==='+'){
     add()
    }
    else if(operator==='-'){
     sub()
    }
-   else if(operator==='*'){
+   else if(operator==='x'){
     mult()
    }
    else if (operator==='/'){
@@ -68,10 +64,10 @@ button.forEach((element) => {
         dispVar+=text
         }
         else{
-            text=element.innerHTML
+            
         }
-        let screen = document.querySelector('.text')
-        screen.textContent=dispVar
+        let current = document.querySelector('.current')
+        current.textContent=dispVar
         
         
     }
@@ -82,17 +78,35 @@ button.forEach((element) => {
 let operatorButton = document.querySelectorAll('.operator')
 operatorButton.forEach((element) =>{
     let test2=function(){
+
+        let text=element.innerHTML
+        let current = document.querySelector('.current')
+        let history=document.querySelector('.history')
+
         if(!num1){
         num1=dispVar
         num1=+num1
-        console.log("I'm gonna try and store the first value, which is: "+num1)
+        operator=text
+        history.textContent=dispVar+' '+operator
         dispVar=''
+        current.textContent=dispVar
         }
         else{
+            if(!num2){
             num2=dispVar
             num2= +num2
-            console.log(num2)
+            history.textContent+=(" "+dispVar)
             dispVar=''
+            current.textContent=dispVar
+            operate()
+            current.textContent=result
+            num2=undefined
+            }
+            operator=text
+            history.textContent= result+' '+operator
+            num1=result
+            
+            
         }
     }
     element.addEventListener('click',test2)

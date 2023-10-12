@@ -20,6 +20,7 @@ body{
     align-items: center;
     display: flex;
     justify-content: end;
+    flex-direction: column;
 }
 button{
     padding:35px;
