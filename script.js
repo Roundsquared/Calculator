@@ -87,7 +87,7 @@ operatorButton.forEach((element) =>{
         num1=dispVar
         num1=+num1
         operator=text
-        history.textContent=dispVar+' '+operator
+        history.textContent=dispVar
         dispVar=''
         current.textContent=dispVar
         }
@@ -95,7 +95,8 @@ operatorButton.forEach((element) =>{
             if(!num2){
             num2=dispVar
             num2= +num2
-            history.textContent+=(" "+dispVar)
+            operator=text
+            history.textContent+=(operator+" "+dispVar)
             dispVar=''
             current.textContent=dispVar
             operate()
@@ -110,4 +111,39 @@ operatorButton.forEach((element) =>{
         }
     }
     element.addEventListener('click',test2)
+})
+
+let backspace = document.querySelector('.delete')
+
+
+let clear = document.querySelector('.clear')
+clear.addEventListener('click',()=>{
+    num1=undefined
+    num2=undefined
+    let current = document.querySelector('.current')
+    let history=document.querySelector('.history')
+    current.textContent=''
+    history.textContent=''
+    dispVar=''
+    result=undefined
+})
+let equals = document.querySelector('.equals')
+equals.addEventListener('click',()=>{
+    num2=dispVar
+    num2= +num2
+    let current = document.querySelector('.current')
+    let history=document.querySelector('.history')
+    if(!num2){
+        num2=0
+        add()
+    }
+    else if(!num1&&!num2){
+        current.textContent='Pick some numbers, bub.'
+    }
+    else{
+        operate()
+        num2=undefined
+        current.textContent=result
+        history.textContent= result
+    }
 })
